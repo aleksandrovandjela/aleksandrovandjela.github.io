@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <!-- Google Analytics Tracking Code -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M6VY6JEW17"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-M6VY6JEW17");
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text">Do you wanna go out with me?</h1>
+      </div>
+      <div class="gif_container">
+        <img src="./style/images/giphy.gif" alt="Cute animated illustration" />
+      </div>
+      <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()">
+          <strong>Yes</strong>
+        </button>
+        <button class="btn" id="noButton" onclick="moveButton()">
+          <strong>No</strong>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function nextPage() {
+        window.location.href = "yes.html";
+      }
+
+      function moveButton() {
+        var x =
+          Math.random() *
+          (window.innerWidth - document.getElementById("noButton").offsetWidth);
+        var y =
+          Math.random() *
+          (window.innerHeight -
+            document.getElementById("noButton").offsetHeight);
+        document.getElementById("noButton").style.left = `${x}px`;
+        document.getElementById("noButton").style.top = `${y}px`;
+      }
+
+      document
+        .getElementById("yesButton")
+        .addEventListener("click", function () {
+          gtag("event", "button_click", {
+            event_category: "Feedback",
+            event_label: "Specific Button Clicked",
+          });
+        });
+
+      /*document.getElementById("yesButton");
+      addEventListener("click", function () {
+        emailjs.send("service_andjela", "template_x8ut2xj", {
+          buttonClicked: true,
+        });
+      });*/
+    </script>
+  </body>
+</html>
